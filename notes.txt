@@ -11,3 +11,30 @@ flask shell
 
 ## to list all available routes in your application
 app.url_map
+
+
+
+### to add object to the database
+in flask shell?
+
+from app import Product
+p = Product()
+p.name = 'ddd'
+p.price = 33
+
+db.session.add(p)
+db.session.commit()
+
+### to query data
+
+
+-- select * from products
+
+products = db.query.all()
+
+
+-- select specific object
+product = db.query.get_or_404(id)
+
+
+-- delete object ?
