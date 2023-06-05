@@ -1,0 +1,13 @@
+
+
+## to start flask application from terminal
+
+export FLASK_APP=app
+export FLASK_DEBUG=1
+flask run
+
+### to open flask shell?
+flask shell
+
+## to list all available routes in your application
+app.url_map
