@@ -2,6 +2,8 @@
 
 from flask import Flask
 from flask import request
+from flask import  render_template
+
 
 # ### create your first app
 app = Flask(__name__)  ## __name__  ==> python assign this variable with module name
@@ -53,13 +55,34 @@ def test_error():
 
 
 # ####################################### jinja template
-students = [{"name":"Ahmed", "track":"Python"},{"name":"Noha", "track":"AI"},
-            {"name":"Mostafa", "track":"cloud"}]
+students = [{"id":1, "name":"Ahmed", "track":"Python"},
+            {"id":2, "name":"Noha", "track":"AI"},
+            {"id":3, "name":"Mostafa", "track":"cloud"}]
 
 @app.route("/students")
 def students_index():
     ##
-    return students
+    # return students
+    ## send students to the template
+    return  render_template("students/index.html", students=students)
+
+
+# default of end_point ---> function name
+@app.route("/students/<int:id>", endpoint='students.show')
+def get_student(id):
+    print(type(id))
+    returned_student = filter(lambda std:std['id']==id, students)
+    returned_student=  list(returned_student)
+    if returned_student:
+        # print(returned_student[0])
+        # return returned_student[0]
+        student= returned_student[0]
+        return render_template("students/show.html", student=student)
+    # return "not found", 404
+    return render_template("pagenotfound.html"), 404
+
+
+
 
 
 # ## limit =-> code in this module should run here only
