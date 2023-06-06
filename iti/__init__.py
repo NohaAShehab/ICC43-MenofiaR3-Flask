@@ -3,8 +3,8 @@
 
 from flask import Flask
 from iti.config import  project_config
-from iti.models import  db, Student
-
+from iti.models import  db
+from flask_migrate import Migrate
 
 def create_app(config_name):
     app = Flask(__name__)
@@ -17,6 +17,9 @@ def create_app(config_name):
     # flask you can read required configuration from this object
     app.config.from_object(app_config)
     db.init_app(app)
+
+    ## add migration to the project
+    migrate = Migrate(app, db, render_as_batch=True)
 
     ## import view to add urls
     # from iti.students.views import students_index

@@ -1,0 +1,75 @@
+
+
+1- create folder iti for our project
+2- in iti folder ?
+    1- create file config.py --> add basic configuration class
+
+    2- create __init__
+        inside it --> create function create_app(configtype)
+        and returns with app object
+    3- to start the application ?
+        create flasky.py
+        import create_app function
+        and run the application
+
+
+---------- create models file for the project----------------------------
+create file models
+
+then add models
+-------------------------- create application students ?-----------------------------
+create folder students:
+    inside this folder
+    view.py
+        write views functions
+
+    studentsblueprints.py
+        create blueprint for routes in students application
+
+    __init__
+    from iti.students import views
+    from iti.studentsblueprints import ....
+
+---------------------------- create related templates students ---------------
+
+
+------ register blueprint routes to my application ?
+in iti/__init__ under function create_app
+    app.register_blueprint(students_blueprint)
+
+
+-------->
+    export FLASK_APP=flasky
+    flask run
+
+---------------create migrations for application---------------------------------------------
+1- pip install Flask-Migrate
+https://flask-migrate.readthedocs.io/en/latest/
+
+2- add migration configruation to __init__ in iti
+from flask_migrate import Migrate
+under creat_app() function
+ migrate = Migrate(app, db, render_as_batch=True)
+
+2- intialize migration folder : do this only one time
+    in terminal
+    flask db init
+
+3- when you need to create migration
+    flask db migrate -m 'any message'
+
+4- to apply migration
+    flask db upgrade
+
+############### one to many relationship ? #################################
+
+
+
+
+
+
+
+
+
+
+

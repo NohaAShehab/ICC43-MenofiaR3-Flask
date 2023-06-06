@@ -8,3 +8,22 @@
 4- urls
 
 5- migrations
+   --> install package migrations
+   1- pip install Flask-Migrate
+
+    2- import migrate in __init__ of the project
+    from flask_migrate import Migrate
+
+    3- register migration with the application
+     migrate = Migrate(app, db, render_as_batch=True)
+
+     4- to apply migration to the database
+        -- in the first time
+        flask db init
+
+        --
+        flask db migrate  -m 'initial migrate '
+
+        -- to apply migrate to the database ?
+        flask db upgrade
+

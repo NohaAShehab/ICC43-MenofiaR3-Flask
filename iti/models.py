@@ -2,9 +2,25 @@
 
 ## here you can find the database config
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 from flask import url_for
-
 db= SQLAlchemy()
+
+
+class Departments(db.Model):
+    __tablemodel__ = 'departments'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+
+    def __init__(self):
+        return self.name
+
+    @classmethod
+    def get_all_departments(cls):
+        return cls.query.all()
+
+
+
 
 
 class Student(db.Model):
@@ -14,6 +30,10 @@ class Student(db.Model):
     email = db.Column(db.String(200), unique=True, nullable=True)
     accepted = db.Column(db.Boolean, default= True)
     age = db.Column(db.Integer, default=10, nullable=True)
+    created_at = db.Column(db.DateTime, default=datetime.now, nullable=True)
+    updated_at = db.Column(db.DateTime, default=datetime.now,onupdate=datetime.now, nullable=True)
+    dept_id = db.Column(db.Integer,
+                        db.ForeignKey("departments.id"), nullable=True)
 
 
     def __str__(self):
