@@ -23,8 +23,8 @@ class DevelopmentConfig(Config):
 class ProductionConfig(Config):
     DEBUG=False
     ## path postgres ?
-    # postgresql:://username:password@localhost:portnumber/databasename
-    SQLALCHEMY_DATABASE_URI= ""
+    # postgresql://username:password@localhost:portnumber/databasename
+    SQLALCHEMY_DATABASE_URI= "postgresql://pymenofia43:iti@localhost:5432/pymenofia43"
 
 
 project_config= {
