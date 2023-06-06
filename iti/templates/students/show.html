@@ -1,0 +1,17 @@
+{% extends  './base.html' %}
+
+{% block content %}
+
+ <h1> Student Info: {{student.name}} dataaa </h1>
+    <div class="card" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">Age: {{student.age}}</p>
+           <p class="card-text">Email: {{student.email}}</p>
+           <p class="card-text">Accepted: {{student.accepted}}</p>
+
+      </div>
+</div>
+
+
+{% endblock %}

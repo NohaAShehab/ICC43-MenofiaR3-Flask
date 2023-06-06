@@ -2,6 +2,7 @@
 
 ## here you can find the database config
 from flask_sqlalchemy import SQLAlchemy
+from flask import url_for
 
 db= SQLAlchemy()
 
@@ -25,6 +26,21 @@ class Student(db.Model):
     @classmethod
     def get_specific_object(cls, id):
         return  cls.query.get_or_404(id)
+
+    def delete_student(self):
+        db.session.delete(self)
+        db.session.commit()
+        return True
+
+
+    def get_show_url(self):
+        return url_for("iti.students_show", id=self.id)
+
+    @property
+    def get_delete_url(self):
+        return url_for("iti.students_delete", id=self.id)
+
+
 
 
 

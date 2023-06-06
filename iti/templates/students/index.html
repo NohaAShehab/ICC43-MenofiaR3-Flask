@@ -12,8 +12,9 @@
                     <td> {{student.id}}</td>
                      <td> {{student.name}}</td>
                      <td> {{student.age}}</td>
-                    <td> <a href="" class="btn btn-info" > Show</a></td>
-                    <td> <a href=""  class="btn btn-danger" > Delete</a></td>
+                    <td> <a href="{{student.get_show_url()}}" class="btn btn-info" > Show</a></td>
+<!--                    <td> <a href="{{url_for('iti.students_delete', id=student.id) }}"  class="btn btn-danger" > Delete</a></td>-->
+                    <td> <a href="{{student.get_delete_url}}"  class="btn btn-danger" > Delete</a></td>
 
                 </tr>
             {% endfor %}

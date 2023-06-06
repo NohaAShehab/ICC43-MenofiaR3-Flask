@@ -1,3 +1,3 @@
 from flask import Blueprint
 ## create new blueprint
-students_blueprint= Blueprint('students', __name__, url_prefix='/students')
+students_blueprint= Blueprint('iti', __name__, url_prefix='/students')
