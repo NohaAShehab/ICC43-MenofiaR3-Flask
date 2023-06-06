@@ -1,0 +1,10 @@
+
+1- configuration file --> settings.py
+
+2- models
+
+3- views
+
+4- urls
+
+5- migrations
