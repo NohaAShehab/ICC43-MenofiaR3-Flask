@@ -19,7 +19,10 @@ def create_app(config_name):
     db.init_app(app)
 
     ## import view to add urls
-    from iti.students.views import students_index
-    app.add_url_rule("/students", view_func=students_index, endpoint='students.index')
+    # from iti.students.views import students_index
+    # app.add_url_rule("/students", view_func=students_index, endpoint='students.index')
+    ### import blueprints
+    from iti.students.studentsblueprints import students_blueprint
+    app.register_blueprint(students_blueprint)
 
     return app
