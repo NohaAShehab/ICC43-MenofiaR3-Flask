@@ -7,7 +7,7 @@ from flask import url_for
 db= SQLAlchemy()
 
 
-class Departments(db.Model):
+class Department(db.Model):
     __tablemodel__ = 'departments'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
@@ -33,7 +33,7 @@ class Student(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.now, nullable=True)
     updated_at = db.Column(db.DateTime, default=datetime.now,onupdate=datetime.now, nullable=True)
     dept_id = db.Column(db.Integer,
-                        db.ForeignKey("departments.id"), nullable=True)
+                        db.ForeignKey("department.id"), nullable=True)
 
 
     def __str__(self):

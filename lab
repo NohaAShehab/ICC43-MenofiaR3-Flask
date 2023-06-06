@@ -1,0 +1,7 @@
+
+
+1-convert the flask application to MVT
+
+2- link posts model to new category model
+
+hints don't forget to use migrations
