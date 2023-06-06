@@ -1,0 +1,22 @@
+{% extends  './base.html' %}
+
+{% block content %}
+    <h1> Students from database </h1>
+    {{students}}
+ <table class="table">
+            <tr> <th>ID</th> <th>Name</th> <th>Price</th> <th> Show</th>
+                <th>Delete</th>
+            </tr>
+        {% for student in students %}
+                <tr>
+                    <td> {{student.id}}</td>
+                     <td> {{student.name}}</td>
+                     <td> {{student.age}}</td>
+                    <td> <a href="" class="btn btn-info" > Show</a></td>
+                    <td> <a href=""  class="btn btn-danger" > Delete</a></td>
+
+                </tr>
+            {% endfor %}
+
+        </table>
+{% endblock %}

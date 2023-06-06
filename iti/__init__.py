@@ -18,5 +18,8 @@ def create_app(config_name):
     app.config.from_object(app_config)
     db.init_app(app)
 
+    ## import view to add urls
+    from iti.students.views import students_index
+    app.add_url_rule("/students", view_func=students_index, endpoint='students.index')
 
     return app
